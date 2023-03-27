@@ -7,16 +7,16 @@ import (
 	"example.com/greetings"
 )
 
-func main() {
-	// Set properties of the predefined Logger, including
-	// the log entry prefix and a flag to disable printing
-	// the time, source file, and line number.
-	log.SetPrefix("[greetings.go]: ")
+func init() {
+	log.SetPrefix("[hello.go]: ")
 	log.SetFlags(3)
+}
 
+func main() {
 	message, err := greetings.Hello("sds")
 	if err != nil {
 		log.Fatal(err)
 	}
+	log.Println("Test...")
 	fmt.Println(message)
 }
